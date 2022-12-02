@@ -15,7 +15,7 @@ async function abc(){
     var acc_number = process.argv[2];
     var timez=process.argv[3];
     var fb=[];
-    var media=[]
+    var media=["siddu"]
     var shop=[]
     var all=[]
 const client=await mClient();
