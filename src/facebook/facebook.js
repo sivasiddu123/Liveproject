@@ -16,12 +16,12 @@ async function sum(){
    var acc_number = process.argv[2];
 var time_zone = process.argv[3];
 // var yesterdays = moment().subtract(0, "days").format("YYYY-MM-DD")
-var today = moment().format("YYYY-MM-DD")
-// var today = "2022-11-30"
+// var today = moment().format("YYYY-MM-DD")
+var today = "2022-12-03"
 
 
 
-const response =await fetch(`https://graph.facebook.com/v14.0/act_${acc_number}/insights?fields=campaign_id,campaign_name&level=campaign&limit=500&filtering=[{%22field%22:%22spend%22,%22operator%22:%22GREATER_THAN%22,%22value%22:%220%22}]&time_range={"since":"${today}","until":"${today}"}&access_token=EAAGAqSOqBOMBAPa5Ww3Dif2jcPH1tA3Onrzw7b9J01xiH3CojuDBkIETqBYGcRbMpjHZBiiyUWlKoZA2LmOWZC1oZCbKVBA7cAg9hZCbGmTzH7z0dZARPoPQbG151QbYCr3bXd7hAZBlhdNkSm7QTGnsZA0TV6nBJ97kcv7AE3LCVvdA6YAEw0hX`)
+const response =await fetch(`https://graph.facebook.com/v14.0/act_${acc_number}/insights?fields=campaign_id,campaign_name&level=campaign&limit=500&filtering=[{%22field%22:%22spend%22,%22operator%22:%22GREATER_THAN%22,%22value%22:%220%22}]&time_range={"since":"${today}","until":"${today}"}&access_token=EAAJ7FZCCkYdMBAG0TePhZBFH8pOjNLIrPiWY6N1FY9Daps8VXcJhdmIZAPKCWEiSNnxNwTkOOweblp2p8Rv07BLAilW7SSCZBQpgmz9JtwBodAApWRmRgZCZATeNOjCtiK1SzeK3LMCtmr6mNBDgZCuJZBArPzV9NAl0KakTGhoSDkzfxa9fgWA8`)
 
 
    .then(function(response){
@@ -59,7 +59,7 @@ for (var i = 0; i<campsids.length; i++){
          // console.log(newArr);
       
          async function idsum(){
-            await fetch(`https://graph.facebook.com/v14.0/act_${acc_number}/insights?breakdowns=hourly_stats_aggregated_by_advertiser_time_zone&fields=clicks,adset_id,campaign_id,campaign_name,adset_name,ad_id,ad_name,spend,inline_link_clicks,impressions,attribution_setting,cpc,actions&filtering=[{"field":"campaign.id","operator":"IN", "value":[${fbid}]}]&level=adset&time_range={"since":"${today}","until":"${today}"}&limit=10000&access_token=EAAGAqSOqBOMBAPa5Ww3Dif2jcPH1tA3Onrzw7b9J01xiH3CojuDBkIETqBYGcRbMpjHZBiiyUWlKoZA2LmOWZC1oZCbKVBA7cAg9hZCbGmTzH7z0dZARPoPQbG151QbYCr3bXd7hAZBlhdNkSm7QTGnsZA0TV6nBJ97kcv7AE3LCVvdA6YAEw0hX`)
+            await fetch(`https://graph.facebook.com/v14.0/act_${acc_number}/insights?breakdowns=hourly_stats_aggregated_by_advertiser_time_zone&fields=clicks,adset_id,campaign_id,campaign_name,adset_name,ad_id,ad_name,spend,inline_link_clicks,impressions,attribution_setting,cpc,actions&filtering=[{"field":"campaign.id","operator":"IN", "value":[${fbid}]}]&level=adset&time_range={"since":"${today}","until":"${today}"}&limit=10000&access_token=EAAJ7FZCCkYdMBAG0TePhZBFH8pOjNLIrPiWY6N1FY9Daps8VXcJhdmIZAPKCWEiSNnxNwTkOOweblp2p8Rv07BLAilW7SSCZBQpgmz9JtwBodAApWRmRgZCZATeNOjCtiK1SzeK3LMCtmr6mNBDgZCuJZBArPzV9NAl0KakTGhoSDkzfxa9fgWA8`)
             .then(function(ids){
                 const resData =  ids.json()
                 return resData
